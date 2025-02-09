@@ -8,48 +8,77 @@
 body {
   font-family: 'Poppins', sans-serif;
 }
+
 /* Animación para fadeInUp */
 @keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
 /* Animación para el slider de habilidades */
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(calc(-1 * var(--scroll-distance)));
   }
 }
+
 .animate-scroll {
   animation: scroll 40s linear infinite;
   will-change: transform;
 }
+
 /* Efecto de ola para cada palabra del nombre */
 .wave-word {
   display: inline-block;
   opacity: 0;
   animation: wave 1s ease-out forwards;
 }
-.wave-word:nth-child(1) { animation-delay: 0.5s; }
-.wave-word:nth-child(2) { animation-delay: 0.7s; }
-.wave-word:nth-child(3) { animation-delay: 0.9s; }
-@keyframes wave {
-  0% { opacity: 0; transform: translateY(0); }
-  50% { opacity: 1; transform: translateY(-10px); }
-  100% { opacity: 1; transform: translateY(0); }
+
+.wave-word:nth-child(1) {
+  animation-delay: 0.5s;
 }
+
+.wave-word:nth-child(2) {
+  animation-delay: 0.7s;
+}
+
+.wave-word:nth-child(3) {
+  animation-delay: 0.9s;
+}
+
+@keyframes wave {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Reglas para flip cards */
 .flip-card {
   perspective: 1000px;
 }
+
 .flip-card-inner {
   position: relative;
   width: 100%;
@@ -57,9 +86,11 @@ body {
   transition: transform 0.6s;
   transform-style: preserve-3d;
 }
+
 .flip-card.flipped .flip-card-inner {
   transform: rotateY(180deg);
 }
+
 .flip-card-front,
 .flip-card-back {
   position: absolute;
@@ -67,11 +98,12 @@ body {
   height: 100%;
   backface-visibility: hidden;
 }
+
 .flip-card-back {
   transform: rotateY(180deg);
 }
-/* Aplica truncado con ellipsis solo en pantallas pequeñas,
-   limitando a 6 líneas para aprovechar mejor el espacio */
+
+/* Aplica truncado con ellipsis solo en pantallas pequeñas y limita a 6 líneas */
 @media (max-width: 768px) {
   .clamp-responsive {
     display: -webkit-box;
